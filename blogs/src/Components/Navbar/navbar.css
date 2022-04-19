@@ -6,7 +6,6 @@
      align-items: center;
      display: flex;
      font-family: 'Lora', serif;
-     background-color: rgb(113, 113, 170);
      z-index: 999;
 }
 .navLeft, .navRight{
