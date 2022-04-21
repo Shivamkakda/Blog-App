@@ -7,6 +7,7 @@
      display: flex;
      font-family: 'Lora', serif;
      z-index: 999;
+     background-color: white;
 }
 .navLeft, .navRight{
     flex: 3;

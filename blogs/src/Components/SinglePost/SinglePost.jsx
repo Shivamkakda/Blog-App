@@ -1,26 +1,46 @@
-import React from 'react'
+import axios from "axios"
+import React, { useEffect, useState } from 'react'
 import "./singlePost.css"
+import { Link, useLocation } from 'react-router-dom'
 
 export default function SinglePost() {
+
+  const location = useLocation()
+  const path = location.pathname.split("/")[2];
+  const [post, setPost] = useState({})
+
+  useEffect(()=>{
+    const getPost = async ()=>{
+      const res =await axios.get("/posts/"+ path);
+      setPost(res.data)
+    }
+    getPost()
+  },[path])
   return (
     <div className='singlePost'> 
         <div className="singlePostWrp">
-        <img className='singlePostImg'
-             src='https://images.unsplash.com/photo-1644982647708-0b2cc3d910b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60'
-             alt='SinglePost Pic'/>
-             <h1 className="singlePosttitle">Lorem shivam
+          {post.photo && (
+            <img className='singlePostImg'
+            src={post.photo}
+            alt='SinglePost Pic'/>
+          )}
+        
+             <h1 className="singlePosttitle">{post.title}
              <div className="singlePostEdit">
              <i className="singlePostIcon fa-solid fa-pen-to-square"></i>
              <i className="singlePostIcon fa-solid fa-trash-can"></i>
              </div>
              </h1>
              <div className="singlePostInfo">
-                 <span className="singlePostAut">Author: <b>Shivam</b></span>
-                 <span className="singlePostDate"> 1 Hour Ago</span>
+                 <span className="singlePostAut">Author:
+                 <Link to ={`/?user=${post.username}`} className="link">
+                 <b>{post.username}</b>
+                 </Link>
+                 </span>
+                 <span className="singlePostDate">{new Date(post.createdAt).toDateString()} </span>
              </div>
              <p className='singlePostDes'>
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga delectus in aperiam voluptate dolore, minima natus magni fugiat quo explicabo? Cum aut animi iusto et voluptatum nesciunt illo sequi eaque!
-                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, libero. Consequatur autem itaque voluptates quaerat commodi sed, ipsa repellendus reprehenderit aliquam aliquid alias iure voluptatum quia nam inventore, non nisi.
+               {post.description}
              </p>
         </div>
     </div>
