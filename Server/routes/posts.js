@@ -88,9 +88,11 @@ router.delete("/:id", async (req,res)=>{
             posts = await Post.find({username})
         }
         else if(catName){
-            posts = await Post.find({ategories:{
-                $in :[catName]
-            }})
+            posts = await Post.find({
+                categories:{
+                $in :[catName],
+            },
+        });
         }
         else{
             posts =await Post.find()

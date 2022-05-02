@@ -1,6 +1,8 @@
 
+import { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from './Components/Navbar/Navbar';
+import { Context } from "./context/Context";
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Settings from './Pages/Settings/Settings';
@@ -9,7 +11,7 @@ import Single from './Pages/Single/Single';
 import Write from './Pages/Write/Write';
 
 function App() {
-  const user =false;
+  const {user} = useContext(Context)
   return (
     <Router>
       <Navbar/>

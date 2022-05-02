@@ -24,9 +24,11 @@
     padding: 10px;
     background-color: white;
     border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .signupButton{
-    margin-top: 20px;
+    margin-top: 10px;
     cursor: pointer;
     background-color: teal;
     border: none;
