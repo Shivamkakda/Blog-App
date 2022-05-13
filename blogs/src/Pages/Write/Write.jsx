@@ -6,6 +6,7 @@ import { Context } from '../../context/Context'
 export default function Write() {
   const [title,setTitle] = useState("")
   const [description,setDescription] = useState("")
+  const [categories,setCategories] = useState("")
   const [file,setFile] = useState(null)
   const {user} = useContext(Context)
 
@@ -14,7 +15,8 @@ export default function Write() {
     const newPost ={
       username: user.username,
       title,
-      description
+      description,
+      categories,
     }
     if(file){
       const data =new FormData()
@@ -58,8 +60,14 @@ export default function Write() {
                 onChange={(e) => setDescription(e.target.value)}>
 
                 </textarea>
+                <textarea placeholder='Category'
+                type="text"
+                className ="writeInput Text"
+                onChange={(e) => setCategories(e.target.value)}>
+
+                </textarea>
             </div>
-            <buttton className="writeSubmit" type="submit">Publish</buttton>
+            <button className="writeSubmit" type="submit">Publish</button>
         </form>
     </div>
   )

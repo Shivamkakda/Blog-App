@@ -17,11 +17,11 @@ export default function Sidebar() {
     return (
         <div className='sidebar'>
             <div className="sidebarItem">
-                <span className='sidebarTitle'> ABOUT ME</span>
+                <span className='sidebarTitle'> ABOUT US</span>
                 <img
-                    src='https://images.unsplash.com/photo-1644982647708-0b2cc3d910b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' />
+                    src='https://cdn-static-1.medium.com/sites/medium.com/creators/images/earn_kelly_kaki.png' />
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fugit tenetur quam autem. Iste tempore voluptate animi odit pariatur, itaque tenetur nisi, fugit non ex aliquid, nobis molestias sed amet.
+                If you have a story to tell, knowledge to share, or a perspective to offer — welcome home. Sign up for free so your writing can thrive in a network supported by many readers
                 </p>
             </div>
             <div className="sidebarItem">

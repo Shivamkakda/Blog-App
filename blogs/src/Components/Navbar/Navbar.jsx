@@ -5,9 +5,11 @@ import "./navbar.css"
 
 export default function Navbar() {
   const {user,dispatch} = useContext(Context)
+  const PF  = "http://localhost:5000/images/"
 
   const handleLogout =()=>{
     dispatch({type:"LOGOUT"})
+    window.location.replace("/login")
   }
 
   return (
@@ -40,9 +42,11 @@ export default function Navbar() {
         <div className='navRight'>
           {
             user ? (
+              <Link to="/settings" className='link'>
               <img className='proPic'
-              src={user.profilePic}
+              src={PF + user.profilePic}
               alt='Profile Pic'/>
+              </Link>
             ) : (
               <ul className='navList'>
                 <li className='navListItem'>
